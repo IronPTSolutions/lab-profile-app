@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom'
 
 
 class Login extends Component {
+  state = {
+    user: {
+      email: '',
+      password: ''
+    },
+    errors: {},
+    touch: {},
+    isAuthenticated: false
+  }
 
   render() {
     const { errors, user, touch } = this.state;
@@ -31,7 +40,7 @@ class Login extends Component {
             <h5>Hello!!</h5>
             <p className="lead mb-5">Awesome to hace at IronProfile again!</p>
             <p className="mb-2"><small>If you signup, you agree with all our terms and conditions where we can do whatever we want with the data!</small></p>
-            <button className="btn btn-white" form="login-form" type="submit" disabled={!this.isValid()}> Login</button>
+            <button className="btn btn-white" form="login-form" type="submit" > Login</button>
           </div>
         </div>
       </div>
