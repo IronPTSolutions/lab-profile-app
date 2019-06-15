@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../controllers/auth.controller');
+const authController = require('../controllers/auth.controller');
+const secure = require('../middlewares/secure.mid');
 
-router.post('/register', auth.register);
-// TODO: authenticate, logout, get profile & edit profile routes
+router.post('/register', authController.register);
+router.post('/authenticate', authController.authenticate);
+router.get('/profile', secure.isAuthenticated, authController.getProfile);
 
 module.exports = router;
